@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Práctica 7 · Publicando mi Página Web | GitHub Pages</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e2d5c8;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contenedor-principal {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        /* Cabecera */
+        .cabecera {
+            background: linear-gradient(135deg, #1e4a3a 0%, #2c6e54 100%);
+            padding: 2rem 2.5rem;
+            color: white;
+            border-bottom: 6px solid #f3b33d;
+        }
+
+        .cabecera h1 {
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #f3b33d;
+            color: #1e4a3a;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Navegación interna */
+        .nav-teoria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            background: #f5ede4;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #e2cfbc;
+        }
+
+        .nav-teoria a {
+            background: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #2c6e54;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 1px solid #d4bc9f;
+            font-size: 0.9rem;
+        }
+
+        .nav-teoria a:hover {
+            background: #2c6e54;
+            color: white;
+            border-color: #2c6e54;
+        }
+
+        /* Contenido principal */
+        .contenido {
+            padding: 2rem 2.5rem;
+        }
+
+        /* Tarjetas de teoría */
+        .tarjeta {
+            background: #fefaf5;
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #eedbcb;
+            overflow: hidden;
+        }
+
+        .tarjeta h2 {
+            background: #f3e9df;
+            padding: 1rem 1.8rem;
+            color: #2c5a48;
+            font-size: 1.5rem;
+            border-left: 8px solid #e67e22;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .cuerpo-teoria {
+            padding: 1.5rem 2rem;
+        }
+
+        .cita-destacada {
+            background: #e8f0ed;
+            border-left: 6px solid #2c6e54;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .alerta-importante {
+            background: #fff3e0;
+            border-left: 6px solid #e67e22;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 20px 20px 0;
+        }
+
+        /* Tablas */
+        .tabla-conceptos {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .tabla-conceptos th {
+            background: #2c6e54;
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        .tabla-conceptos td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            vertical-align: top;
+        }
+
+        .tabla-conceptos tr:nth-child(even) {
+            background: #f9f3ec;
+        }
+
+        /* Grid de conceptos */
+        .grid-conceptos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .item-concepto {
+            background: white;
+            border-radius: 1rem;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e6d5c4;
+        }
+
+        .item-concepto strong {
+            color: #c96f2c;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Bloques de código */
+        .bloque-codigo {
+            background: #1e2a2a;
+            color: #e2f0e8;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-left: 8px solid #f39c12;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .barra-copiar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-copiar {
+            background: #4f7a5c;
+            border: none;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-copiar:hover {
+            background: #36634b;
+            transform: translateY(-2px);
+        }
+
+        .btn-copiar.secundario {
+            background: #b86f2c;
+        }
+
+        .btn-copiar.secundario:hover {
+            background: #9a5a23;
+        }
+
+        /* Pasos de publicación */
+        .paso-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .paso {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            background: #f9f3ec;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            border: 1px solid #e6d5c4;
+        }
+
+        .paso-numero {
+            background: #2c6e54;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .paso-contenido {
+            flex: 1;
+        }
+
+        .paso-contenido h4 {
+            color: #2c6e54;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Vista previa de GitHub */
+        .github-preview {
+            background: #f6f8fa;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e1e4e8;
+            margin: 1rem 0;
+        }
+
+        .github-header {
+            background: #24292e;
+            color: white;
+            padding: 0.8rem 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .github-header span {
+            background: #444d56;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .github-body {
+            padding: 1rem;
+        }
+
+        /* Lista de cotejo */
+        .lista-cotejo {
+            background: #e6d9ce;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-cotejo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .item-cotejo {
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer-practica {
+            background: #dac5b2;
+            padding: 1.5rem;
+            text-align: center;
+            color: #2d4a3b;
+            font-weight: 500;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1f4d3d;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            opacity: 0;
+            transition: 0.2s;
+            pointer-events: none;
+            z-index: 1000;
+            font-weight: 500;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: 1px dashed #e2cfbc;
+        }
+
+        code {
+            background: #f0e4d8;
+            padding: 0.2rem 0.4rem;
+            border-radius: 8px;
+            font-family: monospace;
+            color: #b85c1a;
+        }
+
+        .url-ejemplo {
+            background: #2c6e54;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-family: monospace;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <!-- Cabecera -->
+        <div class="cabecera">
+            <h1>
+                <span>🚀 Práctica 7 · Publicando mi Página Web</span>
+                <span class="badge">GitHub Pages | Hosting Gratuito | Dominio</span>
+            </h1>
+            <p style="margin-top: 1rem;">📖 Aprende a publicar tu sitio web en Internet de forma gratuita usando <strong>GitHub Pages</strong>. Comparte tu proyecto "Poniendo en línea mis raíces" con el mundo.</p>
+            <div style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.9;">
+                <span>👩‍🏫 Docente: José Huidobro Espejel</span> &nbsp;|&nbsp; 
+                <span>📅 Ciclo 2026A · Grupos 601-602</span> &nbsp;|&nbsp;
+                <span>📁 COBAEM 03 Chimalhuacán</span>
+            </div>
+        </div>
+
+        <!-- Navegación interna -->
+        <div class="nav-teoria">
+            <a href="#que-es">🌐 ¿Qué es publicar?</a>
+            <a href="#hosting">💾 Hosting y Dominio</a>
+            <a href="#github">🐙 GitHub Pages</a>
+            <a href="#preparacion">📁 Preparar archivos</a>
+            <a href="#pasos">📋 Pasos para publicar</a>
+            <a href="#verificar">✅ Verificar publicación</a>
+            <a href="#codigo-practico">💻 Código del sitio</a>
+        </div>
+
+        <div class="contenido">
+            <!-- SECCIÓN 1: QUÉ ES PUBLICAR -->
+            <div id="que-es" class="tarjeta">
+                <h2>🌐 1. ¿Qué significa publicar una página web?</h2>
+                <div class="cuerpo-teoria">
+                    <p>Publicar una página web significa <strong>subir todos los archivos de tu sitio (HTML, CSS, imágenes, etc.) a un servidor conectado a Internet</strong>, para que cualquier persona con acceso a la red pueda visitarlo desde cualquier parte del mundo.</p>
+                    <div class="cita-destacada">
+                        <strong>🎯 Objetivo:</strong> Hacer que tu sitio web sea accesible públicamente a través de una URL (dirección web) como <code>https://tusitio.github.io</code> o un dominio personalizado.
+                    </div>
+                    <div class="grid-conceptos">
+                        <div class="item-concepto"><strong>🌍 Página local:</strong> Solo visible en tu computadora (archivos en tu disco duro).</div>
+                        <div class="item-concepto"><strong>🌐 Página publicada:</strong> Alojada en un servidor, accesible desde cualquier dispositivo con Internet.</div>
+                        <div class="item-concepto"><strong>🔗 URL pública:</strong> Dirección única que usan los visitantes para acceder a tu sitio.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: HOSTING Y DOMINIO -->
+            <div id="hosting" class="tarjeta">
+                <h2>💾 2. Hosting y Dominio: conceptos fundamentales</h2>
+                <div class="cuerpo-teoria">
+                    <div class="grid-conceptos">
+                        <div class="item-concepto">
+                            <strong>🏠 Hosting (Alojamiento)</strong>
+                            Es el servicio que proporciona espacio en un servidor para almacenar los archivos de tu sitio web. Es como alquilar un terreno donde construir tu casa digital.
+                        </div>
+                        <div class="item-concepto">
+                            <strong>🔖 Dominio</strong>
+                            Es el nombre único que identifica tu sitio web (ej: <code>artesaniasdonpepe.com</code>). Es como la dirección de tu casa.
+                        </div>
+                    </div>
+                    
+                    <table class="tabla-conceptos">
+                        <thead>
+                            <tr><th>Tipo de Hosting</th><th>Descripción</th><th>Precio</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Hosting Gratuito</strong></td>
+                            <td>Espacio limitado, subdominio incluido. Ideal para proyectos escolares.</td>
+                            <td>Gratis</td>
+                            </tr>
+                            <tr>
+                            <td><strong>Hosting Compartido</strong></td>
+                            <td>Varios sitios comparten un mismo servidor. Bueno para sitios pequeños.</td>
+                            <td>$3-10 USD/mes</td>
+                            </tr>
+                            <tr>
+                            <td><strong>VPS / Dedicado</strong></td>
+                            <td>Servidor exclusivo. Mayor rendimiento y control.</td>
+                            <td>$20+ USD/mes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="alerta-importante">
+                        <strong>✨ GitHub Pages:</strong> Es un servicio gratuito de hosting que ofrece GitHub para publicar sitios web estáticos directamente desde repositorios. Perfecto para proyectos educativos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: GITHUB PAGES -->
+            <div id="github" class="tarjeta">
+                <h2>🐙 3. GitHub Pages: hosting gratuito y profesional</h2>
+                <div class="cuerpo-teoria">
+                    <p><strong>GitHub Pages</strong> es un servicio de hosting gratuito que permite publicar sitios web estáticos directamente desde repositorios de GitHub. Es ideal para proyectos personales, portafolios y páginas de documentación.</p>
+                    
+                    <div class="cita-destacada">
+                        <strong>🎁 Ventajas de GitHub Pages:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>✅ Completamente gratuito</li>
+                            <li>✅ Sin publicidad</li>
+                            <li>✅ Soporta HTML, CSS, JavaScript</li>
+                            <li>✅ URL personalizable: <code>usuario.github.io/nombre-repo</code></li>
+                            <li>✅ Integración con Git (control de versiones)</li>
+                            <li>✅ SSL/HTTPS automático (seguridad)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="github-preview">
+                        <div class="github-header">
+                            <span>GitHub</span>
+                            <span>Pages</span>
+                        </div>
+                        <div class="github-body">
+                            <p><strong>📌 URL de publicación:</strong></p>
+                            <div class="url-ejemplo">https://tu-usuario.github.io/nombre-del-repositorio/</div>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Ejemplo: <code>https://juanperez.github.io/artesanias-don-pepe/</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: PREPARACIÓN DE ARCHIVOS -->
+            <div id="preparacion" class="tarjeta">
+                <h2>📁 4. Preparar los archivos para publicar</h2>
+                <div class="cuerpo-teoria">
+                    <p>Antes de publicar, debemos asegurarnos de que nuestro sitio web esté correctamente organizado y funcione correctamente de forma local.</p>
+                    
+                    <div class="alerta-importante">
+                        <strong>📌 Reglas importantes:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>El archivo principal debe llamarse <strong><code>index.html</code></strong> (es la página de inicio)</li>
+                            <li>Todas las rutas a imágenes, CSS y otros archivos deben ser <strong>relativas</strong> (no usar rutas absolutas como C:\misitio\imagen.jpg)</li>
+                            <li>Los nombres de archivos y carpetas deben usar <strong>minúsculas, sin espacios ni caracteres especiales</strong> (ñ, acentos, etc.)</li>
+                            <li>Estructura organizada: carpetas para <code>css/</code>, <code>img/</code>, <code>js/</code> (si aplica)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="barra-copiar">
+                        <button class="btn-copiar" data-target="codigo-estructura">📋 Copiar estructura de carpetas recomendada</button>
+                    </div>
+                    <div class="bloque-codigo" id="codigo-estructura">
+mi-sitio-web/
+│
+├── index.html              # Página principal (OBLIGATORIO)
+├── productos.html          # Otras páginas
+├── contacto.html
+│
+├── css/
+│   └── estilos.css         # Hoja de estilos principal
+│
+├── img/
+│   ├── logo.jpg
+│   ├── producto1.jpg
+│   └── banner.jpg
+│
+├── js/                     # (opcional)
+│   └── script.js
+│
+└── README.md               # Documentación (opcional)
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5: PASOS PARA PUBLICAR EN GITHUB PAGES -->
+            <div id="pasos" class="tarjeta">
+                <h2>📋 5. Pasos para publicar con GitHub Pages</h2>
+                <div class="cuerpo-teoria">
+                    <div class="paso-container">
+                        <div class="paso">
+                            <div class="paso-numero">1</div>
+                            <div class="paso-contenido">
+                                <h4>Crear una cuenta en GitHub</h4>
+                                <p>Ingresa a <a href="https://github.com" target="_blank">https://github.com</a> y regístrate. Usa un correo electrónico válido y elige un nombre de usuario (será parte de tu URL).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="paso">
+                            <div class="paso-numero">2</div>
+                            <div class="paso-contenido">
+                                <h4>Crear un nuevo repositorio</h4>
+                                <p>Haz clic en el botón verde "<strong>New repository</strong>" o "<strong>+</strong>" → "<strong>New repository</strong>".</p>
+                                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                    <li><strong>Repository name:</strong> Elige un nombre (ej: <code>artesanias-don-pepe</code>)</li>
+                                    <li><strong>Description:</strong> (opcional) Breve descripción del proyecto</li>
+                                    <li><strong>Public / Private:</strong> Selecciona <strong>Public</strong> (para GitHub Pages gratuito)</li>
+                                    <li><strong>Initialize with README:</strong> Puedes marcarlo para crear un README inicial</li>
+                                    <li>Haz clic en "<strong>Create repository</strong>"</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="paso">
+                            <div class="paso-numero">3</div>
+                            <div class="paso-contenido">
+                                <h4>Subir los archivos del sitio web</h4>
+                                <p>Hay dos formas de subir archivos:</p>
+                                <p><strong>Opción A (recomendada):</strong> Usar la interfaz web de GitHub</p>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li>Haz clic en "<strong>Add file</strong>" → "<strong>Upload files</strong>"</li>
+                                    <li>Arrastra todos los archivos y carpetas de tu proyecto</li>
+                                    <li>Escribe un mensaje de commit (ej: "Subir sitio web")</li>
+                                    <li>Haz clic en "<strong>Commit changes</strong>"</li>
+                                </ul>
+                                <p style="margin-top: 0.5rem;"><strong>Opción B:</strong> Usar Git desde la terminal (para usuarios avanzados)</p>
+                                <div class="bloque-codigo" style="margin-top: 0.5rem;">
+git init
+git add .
+git commit -m "Primera versión del sitio"
+git remote add origin https://github.com/tu-usuario/nombre-repo.git
+git push -u origin main
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="paso">
+                            <div class="paso-numero">4</div>
+                            <div class="paso-contenido">
+                                <h4>Activar GitHub Pages</h4>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li>En tu repositorio, ve a la pestaña "<strong>Settings</strong>" (Configuración)</li>
+                                    <li>En el menú lateral izquierdo, busca "<strong>Pages</strong>"</li>
+                                    <li>En la sección "<strong>Branch</strong>", selecciona <strong>main</strong> (o master) y la carpeta <strong>/(root)</strong></li>
+                                    <li>Haz clic en "<strong>Save</strong>"</li>
+                                    <li>Espera unos minutos mientras GitHub construye y publica tu sitio</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="paso">
+                            <div class="paso-numero">5</div>
+                            <div class="paso-contenido">
+                                <h4>Obtener la URL pública</h4>
+                                <p>Una vez activado, verás un mensaje con la URL de tu sitio publicado:</p>
+                                <div class="url-ejemplo">https://tu-usuario.github.io/nombre-del-repositorio/</div>
+                                <p>¡Comparte este enlace con tu docente y compañeros!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alerta-importante">
+                        <strong>⏱️ Tiempo de publicación:</strong> Puede tomar entre 1 y 5 minutos para que los cambios se reflejen. Si no ves tu sitio, espera un poco y actualiza la página.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 6: VERIFICAR PUBLICACIÓN -->
+            <div id="verificar" class="tarjeta">
+                <h2>✅ 6. Verificar que el sitio funciona correctamente</h2>
+                <div class="cuerpo-teoria">
+                    <p>Después de publicar, es importante verificar que todo funcione correctamente:</p>
+                    
+                    <div class="grid-conceptos">
+                        <div class="item-concepto">
+                            <strong>🔗 1. Verificar enlaces</strong>
+                            Asegúrate de que todos los enlaces del menú y los hipervínculos funcionen correctamente.
+                        </div>
+                        <div class="item-concepto">
+                            <strong>🖼️ 2. Verificar imágenes</strong>
+                            Comprueba que todas las imágenes se carguen correctamente.
+                        </div>
+                        <div class="item-concepto">
+                            <strong>📱 3. Verificar responsividad</strong>
+                            Prueba tu sitio en diferentes dispositivos o usando herramientas de desarrollador.
+                        </div>
+                        <div class="item-concepto">
+                            <strong>🔒 4. Verificar HTTPS</strong>
+                            GitHub Pages proporciona SSL automático. Asegúrate de que la URL comience con <code>https://</code>.
+                        </div>
+                    </div>
+                    
+                    <div class="barra-copiar">
+                        <button class="btn-copiar" data-target="codigo-verificacion">📋 Copiar lista de verificación</button>
+                    </div>
+                    <div class="bloque-codigo" id="codigo-verificacion">
+=== LISTA DE VERIFICACIÓN POST-PUBLICACIÓN ===
+
+□ 1. El archivo index.html está en la raíz del repositorio
+□ 2. La URL se abre correctamente en el navegador
+□ 3. Todos los enlaces (menú, botones) funcionan
+□ 4. Todas las imágenes se visualizan correctamente
+□ 5. Los estilos CSS se aplican correctamente
+□ 6. El sitio se ve bien en móvil (probar con DevTools)
+□ 7. No hay errores 404 (página no encontrada)
+□ 8. La URL es accesible desde otro dispositivo (opcional)
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 7: CÓDIGO DEL SITIO WEB COMPLETO -->
+            <div id="codigo-practico" class="tarjeta">
+                <h2>💻 7. Código completo del sitio web para publicar</h2>
+                <div class="cuerpo-teoria">
+                    <p>A continuación, el código completo para un sitio web listo para publicar en GitHub Pages. Guarda los archivos con la estructura recomendada.</p>
+                    
+                    <!-- ARCHIVO HTML -->
+                    <div style="margin: 1.8rem 0;">
+                        <h3 style="color: #2c6e54; margin-bottom: 0.5rem;">📄 Archivo: index.html</h3>
+                        <div class="barra-copiar">
+                            <button class="btn-copiar" data-target="codigo-html-publicar">📋 Copiar HTML</button>
+                        </div>
+                        <div class="bloque-codigo" id="codigo-html-publicar">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;🌿 Artesanías Don Pepe | Sitio Oficial&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/estilos.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="contenedor"&gt;
+        &lt;header&gt;
+            &lt;h1&gt;🌮 Artesanías Don Pepe&lt;/h1&gt;
+            &lt;p&gt;Tradición y sabor que conectan con la tierra&lt;/p&gt;
+        &lt;/header&gt;
+
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="index.html"&gt;🏠 Inicio&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="productos.html"&gt;🛍️ Productos&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="recetas.html"&gt;📖 Recetas&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="contacto.html"&gt;📞 Contacto&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+
+        &lt;main&gt;
+            &lt;section class="hero"&gt;
+                &lt;h2&gt;Mole artesanal Doña Clara&lt;/h2&gt;
+                &lt;p&gt;Elaborado con chiles de la región, chocolate de metate y especias naturales.&lt;/p&gt;
+                &lt;a href="productos.html" class="btn"&gt;Ver productos&lt;/a&gt;
+            &lt;/section&gt;
+
+            &lt;section class="productos-destacados"&gt;
+                &lt;h3&gt;🌟 Productos destacados&lt;/h3&gt;
+                &lt;div class="productos-grid"&gt;
+                    &lt;div class="producto-card"&gt;
+                        &lt;img src="img/mole-tradicional.jpg" alt="Mole tradicional"&gt;
+                        &lt;h4&gt;Mole Tradicional&lt;/h4&gt;
+                        &lt;p&gt;500g - $120 MXN&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="producto-card"&gt;
+                        &lt;img src="img/mole-especial.jpg" alt="Mole especial"&gt;
+                        &lt;h4&gt;Mole Especial&lt;/h4&gt;
+                        &lt;p&gt;1kg - $220 MXN&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="producto-card"&gt;
+                        &lt;img src="img/pack-familiar.jpg" alt="Pack familiar"&gt;
+                        &lt;h4&gt;Pack Familiar&lt;/h4&gt;
+                        &lt;p&gt;2kg - $380 MXN&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+        &lt;/main&gt;
+
+        &lt;aside&gt;
+            &lt;h3&gt;🎉 Promoción especial&lt;/h3&gt;
+            &lt;p&gt;2 kg de mole por solo $180 MXN&lt;/p&gt;
+            &lt;p&gt;Válido hasta fin de mes.&lt;/p&gt;
+        &lt;/aside&gt;
+
+        &lt;footer&gt;
+            &lt;p&gt;© 2026 Artesanías Don Pepe - Chimalhuacán, Estado de México&lt;/p&gt;
+            &lt;p&gt;📱 Síguenos: Facebook | Instagram | WhatsApp&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                    </div>
+
+                    <!-- ARCHIVO CSS -->
+                    <div style="margin: 1.8rem 0;">
+                        <h3 style="color: #2c6e54; margin-bottom: 0.5rem;">🎨 Archivo: css/estilos.css</h3>
+                        <div class="barra-copiar">
+                            <button class="btn-copiar" data-target="codigo-css-publicar">📋 Copiar CSS</button>
+                        </div>
+                        <div class="bloque-codigo" id="codigo-css-publicar">
+/* ========== RESET Y CONFIGURACIÓN BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7ede3;
+    line-height: 1.6;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fffaf5;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(135deg, #4a6b5f, #2c6e54);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ========== MENÚ DE NAVEGACIÓN ========== */
+nav {
+    background: #e67e22;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+nav ul li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    background: #f39c12;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    background: #3b8c6e;
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 1rem;
+    border-radius: 20px;
+}
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f9e0a8;
+}
+.btn {
+    display: inline-block;
+    background: #f4a261;
+    color: #2c3e2f;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #e67e22;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ========== PRODUCTOS DESTACADOS ========== */
+.productos-destacados {
+    padding: 2rem;
+}
+.productos-destacados h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #2c6e54;
+    margin-bottom: 2rem;
+}
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.producto-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+.producto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.producto-card h4 {
+    color: #2c6e54;
+    margin: 1rem 0 0.5rem;
+}
+.producto-card p {
+    color: #b86f2c;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* ========== ASIDE ========== */
+aside {
+    background: #f4a261;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+}
+aside h3 {
+    color: #fff2df;
+    margin-bottom: 0.8rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: #2c3e2f;
+    color: #f0e2c5;
+    text-align: center;
+    padding: 1.5rem;
+}
+footer p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 0.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .hero {
+        padding: 2rem 1rem;
+    }
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+                        </div>
+                    </div>
+
+                    <!-- BOTÓN PARA COPIAR AMBOS ARCHIVOS -->
+                    <div class="barra-copiar" style="justify-content: center; margin-top: 1rem;">
+                        <button class="btn-copiar secundario" id="copiarAmbos">📋📋 COPIAR HTML + CSS (ambos archivos)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISTA DE COTEJO -->
+            <div class="lista-cotejo">
+                <h3 style="color: #2c5a48;">✅ Lista de cotejo - Práctica 7 (Publicación)</h3>
+                <div class="grid-cotejo">
+                    <div class="item-cotejo">☑️ 1. Creó una cuenta en GitHub correctamente</div>
+                    <div class="item-cotejo">☑️ 2. Creó un repositorio público para el sitio web</div>
+                    <div class="item-cotejo">☑️ 3. Subió todos los archivos del sitio (HTML, CSS, imágenes)</div>
+                    <div class="item-cotejo">☑️ 4. El archivo principal se llama <code>index.html</code> y está en la raíz</div>
+                    <div class="item-cotejo">☑️ 5. Activó GitHub Pages en la configuración del repositorio</div>
+                    <div class="item-cotejo">☑️ 6. Obtuvo la URL pública del sitio publicado</div>
+                    <div class="item-cotejo">☑️ 7. El sitio se visualiza correctamente en el navegador</div>
+                    <div class="item-cotejo">☑️ 8. Todos los enlaces funcionan correctamente</div>
+                    <div class="item-cotejo">☑️ 9. Las imágenes se cargan correctamente</div>
+                    <div class="item-cotejo">☑️ 10. Compartió la URL con el docente para evaluación</div>
+                </div>
+            </div>
+
+            <!-- CONSEJOS Y SOLUCIÓN DE PROBLEMAS -->
+            <div class="tarjeta">
+                <h2>🛠️ Solución de problemas comunes</h2>
+                <div class="cuerpo-teoria">
+                    <table class="tabla-conceptos">
+                        <thead>
+                            <tr><th>Problema</th><th>Posible solución</th></thead>
+                        <tbody>
+                            <tr><td>El sitio no se ve después de publicar</td><td>Espera 5 minutos y actualiza. Verifica que GitHub Pages esté activado en Settings → Pages.</td></tr>
+                            <tr><td>Las imágenes no se cargan</td><td>Verifica que las rutas sean correctas. Usa rutas relativas: <code>img/foto.jpg</code> no <code>C:\imagenes\foto.jpg</code></td></tr>
+                            <tr><td>Los estilos CSS no se aplican</td><td>Verifica que el enlace al CSS sea correcto y que el archivo esté en la carpeta correcta.</td></tr>
+                            <tr><td>Error 404 (página no encontrada)</td><td>Asegúrate de que el archivo existe y que el nombre es exacto (mayúsculas/minúsculas).</td></tr>
+                            <tr><td>El menú no funciona</td><td>Verifica que los enlaces apunten a los archivos correctos. GitHub Pages es sensible a mayúsculas.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- REFLEXIÓN FINAL -->
+            <div style="background: #f4e4d8; border-radius: 2rem; padding: 1.5rem; text-align: center;">
+                <p><strong>🎓 Reflexión final:</strong> ¡Felicidades! Has publicado tu primer sitio web en Internet. Ahora tu proyecto "Poniendo en línea mis raíces" está disponible para que cualquier persona en el mundo pueda conocer las tradiciones y productos de tu comunidad.</p>
+                <p style="margin-top: 0.8rem;">📌 <strong>Próximo paso:</strong> Comparte tu URL con familiares y amigos. Puedes seguir mejorando tu sitio agregando más contenido, mejorando el diseño o incluso comprando un dominio personalizado.</p>
+                <p style="margin-top: 0.5rem;">💡 <strong>Tip final:</strong> Mantén tu repositorio actualizado. Cada vez que subas cambios a GitHub, tu sitio se actualizará automáticamente después de unos minutos.</p>
+                <div style="margin-top: 1rem;">
+                    <div class="url-ejemplo">🌐 https://tu-usuario.github.io/tu-sitio/</div>
+                    <p style="margin-top: 0.5rem;">¡Comparte tu sitio con el mundo!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-practica">
+            📍 COBAEM 03 Chimalhuacán · Docente José Huidobro Espejel · Submódulo Páginas Web · Práctica 7 · Publicación con GitHub Pages
+        </div>
+    </div>
+
+    <div class="toast" id="toast">📋 Código copiado al portapapeles</div>
+
+    <script>
+        (function() {
+            const toast = document.getElementById('toast');
+            
+            function mostrarToast(mensaje = '📋 Código copiado al portapapeles') {
+                toast.style.opacity = '1';
+                toast.style.transition = '0.2s';
+                setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+            }
+
+            function copiarTexto(elementoId) {
+                const elemento = document.getElementById(elementoId);
+                if (!elemento) {
+                    console.error('Elemento no encontrado:', elementoId);
+                    return;
+                }
+                let texto = elemento.innerText || elemento.textContent;
+                navigator.clipboard.writeText(texto).then(() => {
+                    mostrarToast();
+                }).catch(() => {
+                    alert('No se pudo copiar automáticamente. Por favor, selecciona el código manualmente (Ctrl+C).');
+                });
+            }
+
+            // Botones individuales
+            document.querySelectorAll('.btn-copiar[data-target]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = btn.getAttribute('data-target');
+                    copiarTexto(targetId);
+                });
+            });
+
+            // Botón copiar ambos archivos
+            const btnAmbos = document.getElementById('copiarAmbos');
+            if (btnAmbos) {
+                btnAmbos.addEventListener('click', () => {
+                    const htmlCodigo = document.getElementById('codigo-html-publicar').innerText;
+                    const cssCodigo = document.getElementById('codigo-css-publicar').innerText;
+                    const contenidoCompleto = `╔══════════════════════════════════════╗\n║   📄 index.html                       ║\n╚══════════════════════════════════════╝\n\n${htmlCodigo}\n\n\n╔══════════════════════════════════════╗\n║   🎨 css/estilos.css                  ║\n╚══════════════════════════════════════╝\n\n${cssCodigo}`;
+                    
+                    navigator.clipboard.writeText(contenidoCompleto).then(() => {
+                        mostrarToast('✅ HTML + CSS copiados (ambos archivos)');
+                    }).catch(() => {
+                        alert('No se pudo copiar. Intenta copiar cada archivo por separado.');
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

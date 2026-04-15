@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<style>
+	/* ===== ESTILOS GENERALES (BASE MÓVIL) ===== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f4f4f4; 
+}
+
+/* Encabezado y pie */
+.header, .pie { 
+    background-color: #DC143C; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+}
+
+/* Barra de navegación */
+.navbar { 
+    background-color: #000000;
+}
+.menu { 
+    list-style: none; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+.menu li a { 
+    color: white; 
+    text-decoration: none; 
+    padding: 15px; 
+    display: block; 
+}
+.menu li a:hover {
+    background-color: #DC143C;
+    transition: 0.3s;
+}
+
+/* Contenedor principal FLEXIBLE */
+.contenedor-principal {
+    display: flex;
+    flex-wrap: wrap; /* EN MÓVIL: SE APILAN */
+    padding: 10px;
+}
+
+.contenido { 
+    flex: 1 1 100%; /* OCUPA 100% EN MÓVIL */
+    padding: 10px; 
+    background:#990000
+}
+
+.lateral { 
+    flex: 1 1 100%; /* OCUPA 100% EN MÓVIL */
+    padding: 10px; 
+    background: #990000 
+}
+
+/* Imágenes fluidas (nunca se desbordan) */
+.img-fluida { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    margin: 10px 0;
+}
+
+/* ===== MEDIA QUERY PARA TABLETS Y ESCRITORIO (pantallas > 700px) ===== */
+@media (min-width: 700px) {
+    .contenedor-principal {
+        flex-wrap: nowrap; /* ESCRITORIO: UNO AL LADO DEL OTRO */
+    }
+    
+    .contenido {
+        flex: 3; /* Ocupa 3/4 del espacio */
+        margin-right: 10px;
+    }
+    
+    .lateral {
+        flex: 1; /* Ocupa 1/4 del espacio */
+    }
+}
+
+/* Ajustes adicionales para pantallas muy grandes */
+@media (min-width: 1200px) {
+    .contenedor-principal {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+    <meta charset="UTF-8">
+    <!-- ETIQUETA PRIMORDIAL para adaptabilidad móvil -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artesanías "Don Pepe" - Responsivo</title>
+    <link rel="stylesheet" href="reglas.css">
+</style>
+</head>
+<body>
+    <header class="header">
+        <h1>"suplementos don pana"&#128568;</h1>
+    </header>
+
+    
+
+    <main class="contenedor-principal">
+        <section class="contenido">
+            <h2>NOS UBICAMOS</h2>
+            <p>Av Urano 551 C, 94299 Boca del Río, Veracruz</p>
+            <!-- Elementos multimedia (ejemplo de 2 imágenes) -->
+            <img src="IMAGENES/ubicacion.png" alt="Producto 1" class="img-fluida">
+            
+        </section>
+
+        <aside class="lateral">
+            <h3>Telefono</h3>
+            <p>5640971362.</p>
+        </aside>
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 026 "suplementos don pana"&#128568;</p>
+    </footer>
+</body>
+</html>
+                
